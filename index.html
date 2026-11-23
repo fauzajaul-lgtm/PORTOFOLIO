@@ -127,8 +127,11 @@
     }
     .gallery { display: grid; gap: 12px; }
     .gallery .main img { aspect-ratio: 16 / 10; object-fit: cover; object-position: top left; width: 100%; }
-    .thumbs { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+    .thumbs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+    .thumb { margin: 0; }
+    .thumb .shot { box-shadow: 0 1px 2px rgba(23, 32, 51, .06); }
     .thumbs img { aspect-ratio: 16 / 10; object-fit: cover; object-position: top left; width: 100%; }
+    .thumb figcaption { margin-top: 6px; font-size: .82rem; color: var(--muted); }
     .gallery-note { font-size: .82rem; color: var(--muted); }
 
     /* Studi kasus */
@@ -264,7 +267,8 @@
           </div>
           <h1>Fauza Nurhakim Ar Rafei</h1>
           <div class="seam" aria-hidden="true"></div>
-          <p class="lead">Saya membangun aplikasi internal untuk pabrik tas PT Blue Rose Narado: sistem ERP, perhitungan costing, pengolahan order produksi, sampai pemantauan output tiap line. Latar belakang saya analisis sistem dan GIS, jadi saya terbiasa mulai dari kebutuhan user sebelum menulis kode.</p>
+          <p class="lead">Saya membangun aplikasi internal untuk pabrik tas PT Blue Rose Narado: sistem ERP, perhitungan costing, pengolahan order produksi, sampai pemantauan output tiap line.</p>
+          <p class="lead" style="margin-top:14px">Sebelumnya saya bekerja sebagai system analyst, jadi saya terbiasa menggali kebutuhan user dan menuangkannya ke SRS, ERD dan rancangan tampilan sebelum mulai coding. Saya juga punya latar belakang GIS, sehingga bisa mengolah data spasial dan peta saat aplikasi membutuhkannya.</p>
           <div class="actions">
             <a class="btn btn-primary" href="#proyek">Lihat proyek</a>
             <a class="btn btn-ghost" href="https://wa.me/6289699020721" target="_blank" rel="noopener">
@@ -315,7 +319,7 @@
           <div class="gallery">
             <div class="shot main"><button type="button" data-open="sims" data-index="0" aria-label="Perbesar dashboard SIMS"><img src="assets/img/sims-dashboard.webp" alt="Dashboard SIMS" loading="lazy" width="1600" height="1000"></button></div>
             <div class="thumbs">
-              <div class="shot"><button type="button" data-open="sims" data-index="1" aria-label="Perbesar halaman login SIMS"><img src="assets/img/sims-login.webp" alt="Halaman login SIMS" loading="lazy" width="1600" height="1000"></button></div>
+              <figure class="thumb"><div class="shot"><button type="button" data-open="sims" data-index="1" aria-label="Perbesar halaman login SIMS"><img src="assets/img/sims-login.webp" alt="Halaman login SIMS" loading="lazy" width="1600" height="1000"></button></div><figcaption>Halaman login</figcaption></figure>
             </div>
           </div>
         </article>
@@ -338,7 +342,7 @@
           <div class="gallery">
             <div class="shot main"><button type="button" data-open="costing" data-index="0" aria-label="Perbesar dashboard CostingBOM"><img src="assets/img/costing-dashboard.webp" alt="Dashboard CostingBOM" loading="lazy" width="1600" height="1372"></button></div>
             <div class="thumbs">
-              <div class="shot"><button type="button" data-open="costing" data-index="1" aria-label="Perbesar halaman login CostingBOM"><img src="assets/img/costing-login.webp" alt="Halaman login CostingBOM" loading="lazy" width="1600" height="1000"></button></div>
+              <figure class="thumb"><div class="shot"><button type="button" data-open="costing" data-index="1" aria-label="Perbesar halaman login CostingBOM"><img src="assets/img/costing-login.webp" alt="Halaman login CostingBOM" loading="lazy" width="1600" height="1000"></button></div><figcaption>Halaman login</figcaption></figure>
             </div>
           </div>
         </article>
@@ -361,7 +365,7 @@
           <div class="gallery">
             <div class="shot main"><button type="button" data-open="md" data-index="0" aria-label="Perbesar dashboard MD Production"><img src="assets/img/md-dashboard.webp" alt="Dashboard MD Production" loading="lazy" width="1600" height="1031"></button></div>
             <div class="thumbs">
-              <div class="shot"><button type="button" data-open="md" data-index="1" aria-label="Perbesar halaman login MD Production"><img src="assets/img/md-login.webp" alt="Halaman login MD Production" loading="lazy" width="1600" height="1000"></button></div>
+              <figure class="thumb"><div class="shot"><button type="button" data-open="md" data-index="1" aria-label="Perbesar halaman login MD Production"><img src="assets/img/md-login.webp" alt="Halaman login MD Production" loading="lazy" width="1600" height="1000"></button></div><figcaption>Halaman login</figcaption></figure>
             </div>
           </div>
         </article>
@@ -384,8 +388,8 @@
           <div class="gallery">
             <div class="shot main"><button type="button" data-open="tracker" data-index="0" aria-label="Perbesar dashboard Production Tracker"><img src="assets/img/tracker-dashboard.webp" alt="Dashboard Production Tracker" loading="lazy" width="1600" height="1124"></button></div>
             <div class="thumbs">
-              <div class="shot"><button type="button" data-open="tracker" data-index="1" aria-label="Perbesar halaman login line"><img src="assets/img/tracker-login-line.webp" alt="Halaman login line Production Tracker" loading="lazy" width="1600" height="1000"></button></div>
-              <div class="shot"><button type="button" data-open="tracker" data-index="2" aria-label="Perbesar halaman PIN dashboard"><img src="assets/img/tracker-pin.webp" alt="Halaman PIN dashboard Production Tracker" loading="lazy" width="1600" height="1000"></button></div>
+              <figure class="thumb"><div class="shot"><button type="button" data-open="tracker" data-index="1" aria-label="Perbesar halaman login line"><img src="assets/img/tracker-login-line.webp" alt="Halaman login line Production Tracker" loading="lazy" width="1600" height="1000"></button></div><figcaption>Login per line</figcaption></figure>
+              <figure class="thumb"><div class="shot"><button type="button" data-open="tracker" data-index="2" aria-label="Perbesar halaman PIN dashboard"><img src="assets/img/tracker-pin.webp" alt="Halaman PIN dashboard Production Tracker" loading="lazy" width="1600" height="1000"></button></div><figcaption>PIN untuk dashboard</figcaption></figure>
             </div>
           </div>
         </article>
@@ -396,25 +400,25 @@
       <div class="wrap">
         <div class="head">
           <h2>Analisis sistem dan GIS</h2>
-          <p>Proyek sebelum PT Blue Rose Narado, saat saya lebih banyak bekerja di analisis kebutuhan, desain database dan pengolahan data spasial.</p>
+          <p>Sebelum di PT Blue Rose Narado, pekerjaan saya ada di dua bidang. Sebagai system analyst, saya menggali kebutuhan user lalu menuangkannya ke SRS, ERD dan mockup. Sebagai GIS analyst, saya mengolah data spasial menjadi peta.</p>
         </div>
         <div class="cases">
           <article class="case">
-            <div class="shot"><button type="button" data-open="lrs" data-index="0" aria-label="Perbesar mockup LRS Admin Dashboard"><img src="assets/img/lrs-mockup.webp" alt="Mockup LRS Admin Dashboard di Figma" loading="lazy" width="1530" height="913"></button></div>
+            <div class="shot"><button type="button" data-open="lrs" data-index="0" aria-label="Perbesar mockup LRS Admin Dashboard"><img src="assets/img/lrs-mockup.webp?v=2" alt="Mockup halaman tambah berita di LRS Admin Dashboard" loading="lazy" width="1178" height="815"></button></div>
             <div class="body">
               <h3>LRS Admin Dashboard</h3>
-              <p class="where">PT Len Railway Systems</p>
-              <p>Dashboard admin untuk monitoring persinyalan kereta api. Saya menyusun SRS, ERD, DFD dan spesifikasi API, lalu membuat mockup di Figma sebagai acuan tim developer.</p>
+              <p class="where">PT Len Railway Systems, analisis sistem</p>
+              <p>Panel admin untuk mengelola isi website perusahaan dalam dua bahasa: berita, artikel, galeri, banner dan lowongan kerja. Saya menyusun SRS, DFD dan spesifikasi API, merancang ERD termasuk role, hak akses dan log aktivitas, lalu membuat mockup di Figma sebagai acuan developer.</p>
               <p class="tags">Figma, Draw.io, PostgreSQL</p>
               <p class="more"><button type="button" data-open="lrs" data-index="1">Lihat ERD database</button></p>
             </div>
           </article>
           <article class="case">
-            <div class="shot"><button type="button" data-open="jagung" data-index="0" aria-label="Perbesar peta SiJagung"><img src="assets/img/jagung-peta.webp" alt="Peta sebaran produksi jagung" loading="lazy" width="1600" height="744"></button></div>
+            <div class="shot"><button type="button" data-open="jagung" data-index="0" aria-label="Perbesar peta SiJagung"><img src="assets/img/jagung-peta-card.webp" alt="Peta sebaran produksi jagung" loading="lazy" width="1310" height="496" style="object-position:center"></button></div>
             <div class="body">
               <h3>SiJagung</h3>
-              <p class="where">Sistem Informasi Jagung Nasional</p>
-              <p>Peta sebaran wilayah produksi jagung di Indonesia. Saya mengolah data spasial menjadi GeoJSON untuk peta web, dan mendesain form laporan untuk kelompok tani.</p>
+              <p class="where">Sistem Informasi Jagung Nasional, GIS dan analisis sistem</p>
+              <p>Aplikasi pemantauan produksi jagung per wilayah. Di sisi GIS, saya mengolah data spasial di QGIS, ArcGIS dan Google Earth Engine menjadi GeoJSON untuk peta sebaran. Di sisi analisis, saya menggali kebutuhan kelompok tani dan mendesain form laporannya di Figma.</p>
               <p class="tags">QGIS, ArcGIS, Google Earth Engine, Figma</p>
               <p class="more"><button type="button" data-open="jagung" data-index="1">Lihat mockup form</button></p>
             </div>
@@ -423,7 +427,7 @@
             <div class="shot"><button type="button" data-open="aset" data-index="0" aria-label="Perbesar flowchart manajemen aset"><img src="assets/img/aset-flowchart.webp" alt="Flowchart proses bisnis manajemen aset IT" loading="lazy" width="529" height="1377"></button></div>
             <div class="body">
               <h3>Manajemen Aset IT</h3>
-              <p class="where">Aplikasi internal perusahaan</p>
+              <p class="where">Aplikasi internal perusahaan, analisis sistem</p>
               <p>SRS dan rancangan proses bisnis To-Be untuk pengelolaan aset IT: data master, siklus hidup aset, audit berkala, sampai pelaporan.</p>
               <p class="tags">Visio, Figma, SRS</p>
             </div>
@@ -543,12 +547,12 @@
         ["assets/img/tracker-pin.webp", "Production Tracker, PIN dashboard"]
       ],
       lrs: [
-        ["assets/img/lrs-mockup.webp", "LRS Admin Dashboard, mockup Figma"],
+        ["assets/img/lrs-mockup.webp?v=2", "LRS Admin Dashboard, mockup halaman tambah berita (Figma)"],
         ["assets/img/lrs-erd.webp", "LRS Admin Dashboard, ERD database"]
       ],
       jagung: [
         ["assets/img/jagung-peta.webp", "SiJagung, peta sebaran produksi jagung"],
-        ["assets/img/jagung-mockup.webp", "SiJagung, mockup form laporan kelompok tani"]
+        ["assets/img/jagung-mockup.webp?v=2", "SiJagung, mockup form laporan kelompok tani (Figma)"]
       ],
       aset: [
         ["assets/img/aset-flowchart.webp", "Manajemen Aset IT, flowchart proses bisnis To-Be"]
