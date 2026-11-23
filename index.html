@@ -1,282 +1,602 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fauza Nurhakim Ar Rafei | Portfolio</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        html { scroll-behavior: smooth; }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fauza Nurhakim Ar Rafei | Software Engineer</title>
+  <meta name="description" content="Portofolio Fauza Nurhakim Ar Rafei, Software Engineer & IT Team Lead. Aplikasi ERP, costing, order produksi dan production tracker untuk pabrik, plus analisis sistem dan GIS.">
+  <meta name="color-scheme" content="light">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..100,500..800&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --paper: #F5F6F8;
+      --surface: #FFFFFF;
+      --ink: #172033;
+      --text: #3F4859;
+      --muted: #6A7385;
+      --line: #DCE1E8;
+      --thread: #B7741C;
+      --thread-soft: #F4E6D2;
+      --radius: 10px;
+      --display: "Archivo", "Arial Narrow", sans-serif;
+      --body: "IBM Plex Sans", "Segoe UI", sans-serif;
+      --wrap: 1120px;
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--text);
+      font: 400 16px/1.65 var(--body);
+      -webkit-font-smoothing: antialiased;
+    }
+    img { display: block; max-width: 100%; height: auto; }
+    a { color: var(--ink); text-decoration-color: var(--thread); text-underline-offset: 3px; }
+    a:hover { color: var(--thread); }
+    :focus-visible { outline: 2px solid var(--thread); outline-offset: 3px; border-radius: 4px; }
+    h1, h2, h3 { font-family: var(--display); color: var(--ink); margin: 0; line-height: 1.1; }
+    p { margin: 0; }
+    ul { margin: 0; padding: 0; }
+    .wrap { width: min(var(--wrap), 100% - 32px); margin-inline: auto; }
+
+    /* Navigasi */
+    .top {
+      position: sticky; top: 0; z-index: 20;
+      background: rgba(245, 246, 248, .92);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--line);
+    }
+    .top .wrap { display: flex; align-items: center; justify-content: space-between; height: 64px; gap: 16px; }
+    .brand { font-family: var(--display); font-weight: 700; font-stretch: 85%; font-size: 1.15rem; text-decoration: none; color: var(--ink); white-space: nowrap; }
+    .top nav { display: flex; gap: 22px; }
+    .top nav a { text-decoration: none; color: var(--text); font-size: .95rem; font-weight: 500; }
+    .top nav a:hover { color: var(--ink); text-decoration: underline; text-decoration-color: var(--thread); }
+
+    /* Hero */
+    .hero { padding: 72px 0 88px; }
+    .hero .wrap { display: grid; grid-template-columns: 1fr 1.15fr; gap: 56px; align-items: center; }
+    .who { display: flex; align-items: center; gap: 14px; margin-bottom: 28px; }
+    .who img { width: 64px; height: 64px; border-radius: 50%; object-fit: cover; border: 2px solid var(--surface); box-shadow: 0 0 0 1px var(--line); }
+    .who span { font-size: .95rem; color: var(--muted); line-height: 1.4; }
+    .who strong { display: block; color: var(--ink); font-weight: 600; }
+    .hero h1 {
+      font-size: clamp(2.6rem, 5.4vw, 4.1rem);
+      font-weight: 800;
+      font-stretch: 78%;
+      letter-spacing: -.01em;
+      line-height: 1.02;
+    }
+    .seam { height: 0; border-top: 2px dashed var(--thread); width: 96px; margin: 26px 0 24px; }
+    .hero .lead { font-size: 1.1rem; max-width: 34em; }
+    .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 32px; }
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 12px 20px; border-radius: 8px;
+      font-weight: 600; font-size: .95rem; text-decoration: none;
+      border: 1px solid var(--ink);
+    }
+    .btn-primary { background: var(--ink); color: #fff; }
+    .btn-primary:hover { background: #24304a; color: #fff; }
+    .btn-ghost { background: transparent; color: var(--ink); border-color: var(--line); background: var(--surface); }
+    .btn-ghost:hover { border-color: var(--ink); color: var(--ink); }
+    .btn svg { width: 18px; height: 18px; flex: none; }
+
+    .stage { position: relative; padding-bottom: 48px; }
+    .shot {
+      border-radius: var(--radius);
+      border: 1px solid var(--line);
+      background: var(--surface);
+      overflow: hidden;
+      box-shadow: 0 1px 2px rgba(23, 32, 51, .06), 0 12px 32px -12px rgba(23, 32, 51, .22);
+    }
+    .shot button { all: unset; display: block; cursor: zoom-in; width: 100%; }
+    .shot button:focus-visible { outline: 2px solid var(--thread); outline-offset: -2px; }
+    .stage .main img { aspect-ratio: 16 / 10; object-fit: cover; object-position: top left; width: 100%; }
+    .stage .inset {
+      position: absolute; left: -28px; bottom: 0; width: 46%;
+    }
+    .stage .inset img { aspect-ratio: 16 / 10; object-fit: cover; width: 100%; }
+    .stage figcaption { margin-top: 14px; padding-left: 46%; font-size: .85rem; color: var(--muted); }
+
+    /* Section umum */
+    section.block { padding: 88px 0; border-top: 1px solid var(--line); }
+    .head { max-width: 640px; margin-bottom: 48px; }
+    .head h2 { font-size: clamp(1.9rem, 3.4vw, 2.6rem); font-weight: 750; font-stretch: 82%; }
+    .head p { margin-top: 14px; font-size: 1.05rem; }
+
+    /* Proyek utama */
+    .project {
+      display: grid; grid-template-columns: 1fr 1.35fr; gap: 48px; align-items: start;
+      padding: 48px 0; border-top: 1px dashed var(--line);
+    }
+    .project:first-of-type { border-top: 0; padding-top: 0; }
+    .project h3 { font-size: 1.75rem; font-weight: 750; font-stretch: 82%; }
+    .project .full { color: var(--muted); font-size: .95rem; margin-top: 4px; }
+    .project .what { margin-top: 18px; color: var(--ink); font-size: 1.05rem; }
+    .facts { display: grid; grid-template-columns: auto 1fr; gap: 6px 16px; margin: 22px 0; font-size: .93rem; }
+    .facts dt { color: var(--muted); }
+    .facts dd { margin: 0; color: var(--ink); font-weight: 500; }
+    .points { list-style: none; display: grid; gap: 10px; font-size: .97rem; }
+    .points li { position: relative; padding-left: 20px; }
+    .points li::before {
+      content: ""; position: absolute; left: 0; top: .7em;
+      width: 10px; border-top: 2px dashed var(--thread);
+    }
+    .gallery { display: grid; gap: 12px; }
+    .gallery .main img { aspect-ratio: 16 / 10; object-fit: cover; object-position: top left; width: 100%; }
+    .thumbs { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+    .thumbs img { aspect-ratio: 16 / 10; object-fit: cover; object-position: top left; width: 100%; }
+    .gallery-note { font-size: .82rem; color: var(--muted); }
+
+    /* Studi kasus */
+    .cases { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .case {
+      background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
+      display: flex; flex-direction: column; overflow: hidden;
+    }
+    .case .shot { border: 0; border-bottom: 1px solid var(--line); border-radius: 0; box-shadow: none; }
+    .case .shot img { aspect-ratio: 4 / 3; object-fit: cover; object-position: top center; width: 100%; }
+    .case .body { padding: 22px 22px 24px; display: grid; gap: 10px; flex: 1; align-content: start; }
+    .case h3 { font-size: 1.3rem; font-weight: 700; font-stretch: 85%; }
+    .case .where { font-size: .88rem; color: var(--muted); }
+    .case p { font-size: .95rem; }
+    .case .more { font-size: .85rem; color: var(--muted); }
+    .case .more button {
+      all: unset; cursor: pointer; color: var(--ink); text-decoration: underline;
+      text-decoration-color: var(--thread); text-underline-offset: 3px;
+    }
+    .tags { font-size: .85rem; color: var(--muted); }
+
+    /* Pengalaman */
+    .timeline { list-style: none; position: relative; max-width: 760px; }
+    .timeline::before {
+      content: ""; position: absolute; left: 7px; top: 8px; bottom: 8px;
+      border-left: 2px dashed var(--thread);
+    }
+    .timeline li { position: relative; padding: 0 0 36px 44px; }
+    .timeline li:last-child { padding-bottom: 0; }
+    .timeline li::before {
+      content: ""; position: absolute; left: 0; top: 6px;
+      width: 16px; height: 16px; border-radius: 50%;
+      background: var(--paper); border: 2px solid var(--thread);
+    }
+    .timeline li.now::before { background: var(--thread); }
+    .timeline .when { font-size: .88rem; color: var(--muted); }
+    .timeline h3 { font-size: 1.25rem; font-weight: 700; font-stretch: 85%; margin-top: 2px; }
+    .timeline .org { color: var(--ink); font-weight: 500; margin-top: 2px; }
+    .timeline p.desc { margin-top: 8px; font-size: .97rem; }
+
+    /* Keahlian */
+    .skills { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0 48px; max-width: 920px; }
+    .skill { padding: 20px 0; border-top: 1px solid var(--line); display: grid; grid-template-columns: 170px 1fr; gap: 16px; }
+    .skill h3 { font-family: var(--body); font-size: 1rem; font-weight: 600; line-height: 1.6; }
+    .skill p { font-size: .97rem; }
+
+    /* Kontak */
+    .contact { background: var(--ink); color: #C9D0DC; border-top: 0; }
+    .contact .head h2 { color: #fff; }
+    .contact .head p { color: #C9D0DC; }
+    .contact-list { list-style: none; display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .contact-list a {
+      display: block; padding: 20px 22px; border-radius: var(--radius);
+      border: 1px solid #34405A; text-decoration: none; color: #fff;
+    }
+    .contact-list a:hover { border-color: var(--thread); color: #fff; }
+    .contact-list span { display: block; font-size: .85rem; color: #9AA4B6; margin-bottom: 4px; }
+    .contact-list strong { font-weight: 500; word-break: break-word; }
+    .contact :focus-visible { outline-color: #E2A65A; }
+    footer { background: var(--ink); color: #8C96A9; font-size: .85rem; padding: 0 0 40px; }
+    footer .wrap { border-top: 1px solid #2C3650; padding-top: 24px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
+
+    /* Penampil gambar */
+    dialog.viewer {
+      border: 0; padding: 0; background: transparent; max-width: 100vw; max-height: 100vh;
+      width: 100vw; height: 100vh; margin: 0;
+    }
+    dialog.viewer::backdrop { background: rgba(15, 20, 32, .92); }
+    .viewer-inner { height: 100%; display: grid; grid-template-rows: auto 1fr auto; padding: 16px; gap: 12px; }
+    .viewer-bar { display: flex; justify-content: space-between; align-items: center; color: #E6E9EF; font-size: .95rem; gap: 16px; }
+    .viewer-stage { display: flex; align-items: center; justify-content: center; min-height: 0; }
+    .viewer-stage img { max-width: 100%; max-height: 100%; object-fit: contain; border-radius: 6px; background: #fff; }
+    .viewer-nav { display: flex; justify-content: center; gap: 12px; }
+    .vbtn {
+      appearance: none; border: 1px solid #45516B; background: #1E2840; color: #fff;
+      font: 500 .95rem var(--body); padding: 10px 18px; border-radius: 8px; cursor: pointer;
+    }
+    .vbtn:hover { border-color: var(--thread); }
+    .vbtn[hidden] { display: none; }
+
+    /* Animasi satu kali saat halaman dibuka */
+    @media (prefers-reduced-motion: no-preference) {
+      .stage .main { animation: rise .7s cubic-bezier(.2, .7, .2, 1) both; }
+      .stage .inset { animation: rise .7s .18s cubic-bezier(.2, .7, .2, 1) both; }
+      @keyframes rise { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
+    }
+
+    /* Responsif */
+    @media (max-width: 960px) {
+      .hero .wrap, .project { grid-template-columns: 1fr; gap: 36px; }
+      .project .gallery { order: -1; }
+      .cases { grid-template-columns: 1fr 1fr; }
+      .skills { grid-template-columns: 1fr; }
+      .contact-list { grid-template-columns: 1fr; }
+      .stage .inset { left: auto; right: 12px; }
+      .stage figcaption { padding-left: 0; padding-right: 50%; }
+    }
+    @media (max-width: 640px) {
+      .top nav { gap: 14px; }
+      .top nav a { font-size: .9rem; }
+      .top nav a.hide-sm { display: none; }
+      .hero { padding: 44px 0 64px; }
+      section.block { padding: 64px 0; }
+      .cases { grid-template-columns: 1fr; }
+      .skill { grid-template-columns: 1fr; gap: 4px; }
+      .stage { padding-bottom: 0; }
+      .stage .inset { position: static; width: 70%; margin: -40px 0 0 auto; }
+      .stage figcaption { padding-right: 0; }
+    }
+  </style>
 </head>
-<body class="bg-gray-50 text-gray-800 font-sans">
+<body>
 
-    <header class="bg-slate-900 text-white min-h-[60vh] flex flex-col justify-center items-center text-center px-4 relative overflow-hidden">
-        <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:16px_16px]"></div>
-        <div class="z-10 max-w-4xl">
-            <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight mb-2">Fauza Nurhakim Ar Rafei</h1>
-            <p class="text-xl md:text-2xl text-emerald-400 font-semibold mb-6">GIS Specialist | Business & System Analyst</p>
-            <p class="text-gray-400 max-w-2xl mx-auto mb-8 text-sm md:text-base">
-                Seorang analis yang menjembatani kebutuhan bisnis dengan arsitektur sistem teknis, memiliki spesialisasi kuat dalam pengolahan data spasial (GIS) dan pengalaman di industri persinyalan perkeretaapian nasional.
-            </p>
-            <div class="flex flex-wrap justify-center gap-4">
-                <a href="#proyek" class="bg-emerald-500 hover:bg-emerald-600 text-white font-medium px-6 py-3 rounded-lg transition"><i class="fas fa-folder-open mr-2"></i>Lihat Proyek</a>
-                <a href="https://wa.me/6289699020721" target="_blank" class="bg-slate-800 hover:bg-slate-700 text-gray-200 font-medium px-6 py-3 rounded-lg border border-gray-700 transition"><i class="fab fa-whatsapp mr-2"></i>Hubungi Saya</a>
-            </div>
-        </div>
-    </header>
-
-    <main class="max-w-7xl mx-auto px-4 py-12 grid grid-cols-1 lg:grid-cols-4 gap-8">
-        
-        <aside class="space-y-6 lg:col-span-1">
-            <!-- Foto Profil -->
-            <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 text-center">
-                <div class="mb-4 flex justify-center">
-                    <img src="profile.jpeg" alt="Fauza Nurhakim Ar Rafei" class="w-40 h-40 rounded-full object-cover border-4 border-emerald-500 shadow-lg">
-                </div>
-                <h3 class="text-xl font-bold text-slate-900 mb-1">Fauza Nurhakim<br>Ar Rafei</h3>
-                <p class="text-sm text-emerald-600 font-semibold">GIS Specialist & System Analyst</p>
-            </div>
-
-            <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
-                <h3 class="text-lg font-bold text-slate-900 mb-4 border-b pb-2"><i class="fas fa-address-book text-emerald-500 mr-2"></i>Kontak & Info</h3>
-                <ul class="space-y-3 text-sm">
-                    <li class="flex items-center text-gray-600"><i class="fas fa-phone w-6 text-slate-400"></i> 1089699020721</li>
-                    <li class="flex items-center text-gray-600"><i class="fas fa-envelope w-6 text-slate-400"></i> fauzajaul@gmail.com</li>
-                    <li class="flex items-center text-gray-600"><i class="fab fa-github w-6 text-slate-400"></i> <a href="https://github.com/fauzajaul-Igtm" target="_blank" class="hover:text-emerald-500">github.com/fauzajaul-Igtm</a></li>
-                    <li class="flex items-center text-gray-600"><i class="fas fa-graduation-cap w-6 text-slate-400"></i> S1 Teknik Informatika - UIKA Bogor</li>
-                </ul>
-            </div>
-
-            <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
-                <h3 class="text-lg font-bold text-slate-900 mb-4 border-b pb-2"><i class="fas fa-laptop-code text-emerald-500 mr-2"></i>Technical Skills</h3>
-                <div class="space-y-4">
-                    <div>
-                        <span class="text-xs font-bold uppercase tracking-wider text-gray-400">GIS & Spasial</span>
-                        <div class="flex flex-wrap gap-1.5 mt-1">
-                            <span class="bg-slate-100 text-slate-800 text-xs px-2.5 py-1 rounded font-medium">ArcGIS</span>
-                            <span class="bg-slate-100 text-slate-800 text-xs px-2.5 py-1 rounded font-medium">QGIS</span>
-                            <span class="bg-slate-100 text-slate-800 text-xs px-2.5 py-1 rounded font-medium">Google Earth Engine</span>
-                        </div>
-                    </div>
-                    <div>
-                        <span class="text-xs font-bold uppercase tracking-wider text-gray-400">Desain & Diagram</span>
-                        <div class="flex flex-wrap gap-1.5 mt-1">
-                            <span class="bg-slate-100 text-slate-800 text-xs px-2.5 py-1 rounded font-medium">Figma</span>
-                            <span class="bg-slate-100 text-slate-800 text-xs px-2.5 py-1 rounded font-medium">Visio</span>
-                            <span class="bg-slate-100 text-slate-800 text-xs px-2.5 py-1 rounded font-medium">Draw.io</span>
-                        </div>
-                    </div>
-                    <div>
-                        <span class="text-xs font-bold uppercase tracking-wider text-gray-400">Database & Tools</span>
-                        <div class="flex flex-wrap gap-1.5 mt-1">
-                            <span class="bg-slate-100 text-slate-800 text-xs px-2.5 py-1 rounded font-medium">PostgreSQL</span>
-                            <span class="bg-slate-100 text-slate-800 text-xs px-2.5 py-1 rounded font-medium">Excel</span>
-                            <span class="bg-slate-100 text-slate-800 text-xs px-2.5 py-1 rounded font-medium">VS Code</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
-                <h3 class="text-lg font-bold text-slate-900 mb-3 border-b pb-2"><i class="fas fa-file-invoice text-emerald-500 mr-2"></i>Deliverables</h3>
-                <div class="flex flex-wrap gap-1.5">
-                    <span class="bg-emerald-50 text-emerald-700 text-xs px-2.5 py-1 rounded border border-emerald-200">SRS</span>
-                    <span class="bg-emerald-50 text-emerald-700 text-xs px-2.5 py-1 rounded border border-emerald-200">ERD</span>
-                    <span class="bg-emerald-50 text-emerald-700 text-xs px-2.5 py-1 rounded border border-emerald-200">DFD</span>
-                    <span class="bg-emerald-50 text-emerald-700 text-xs px-2.5 py-1 rounded border border-emerald-200">Use Case</span>
-                    <span class="bg-emerald-50 text-emerald-700 text-xs px-2.5 py-1 rounded border border-emerald-200">Flowchart</span>
-                    <span class="bg-emerald-50 text-emerald-700 text-xs px-2.5 py-1 rounded border border-emerald-200">Mockup UI</span>
-                    <span class="bg-emerald-50 text-emerald-700 text-xs px-2.5 py-1 rounded border border-emerald-200">API Spec</span>
-                </div>
-            </div>
-        </aside>
-
-        <section class="lg:col-span-3 space-y-8">
-            
-            <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
-                <h2 class="text-2xl font-bold text-slate-900 mb-6 flex items-center"><i class="fas fa-briefcase text-emerald-500 mr-3"></i>Pengalaman Kerja</h2>
-                <div class="space-y-6">
-                    <div class="relative pl-6 border-l-2 border-emerald-500">
-                        <div class="absolute w-3 h-3 bg-emerald-500 rounded-full -left-[7px] top-1.5"></div>
-                        <div class="flex flex-wrap justify-between items-start gap-2 mb-1">
-                            <h3 class="text-lg font-bold text-slate-800">Business & System Analyst</h3>
-                            <span class="text-xs font-semibold bg-slate-100 text-slate-600 px-2.5 py-1 rounded-full">Nov 2025 - Mei 2026</span>
-                        </div>
-                        <p class="text-sm font-medium text-emerald-600 mb-3">PT Len Railway Systems</p>
-                        <ul class="text-sm text-gray-600 space-y-2 list-disc pl-4">
-                            <li>Melakukan analisis kebutuhan sistem melalui wawancara langsung secara komprehensif dengan pihak stakeholder.</li>
-                            <li>Menentukan spesifikasi integrasi data, termasuk metode HTTP (GET, POST, PUT, PATCH, DELETE) dalam arsitektur API sistem.</li>
-                            <li>Membuat rancangan interaktif mockup UI/UX menggunakan Figma sebagai acuan baku bagi tim pengembang.</li>
-                            <li>Mengolah serta memvisualisasikan data spasial (GIS) untuk kebutuhan fitur pemetaan dinamis pada aplikasi perkeretaapian.</li>
-                        </ul>
-                    </div>
-
-                    <div class="relative pl-6 border-l-2 border-slate-200">
-                        <div class="absolute w-3 h-3 bg-slate-300 rounded-full -left-[7px] top-1.5"></div>
-                        <div class="flex flex-wrap justify-between items-start gap-2 mb-1">
-                            <h3 class="text-lg font-bold text-slate-800">Staff GIS & IT Support (Magang)</h3>
-                            <span class="text-xs font-semibold bg-slate-100 text-slate-600 px-2.5 py-1 rounded-full">Feb 2022 - Agu 2022</span>
-                        </div>
-                        <p class="text-sm font-medium text-slate-500 mb-3">Yayasan Al-A'laa Bogor</p>
-                        <ul class="text-sm text-gray-600 space-y-2 list-disc pl-4">
-                            <li>Melakukan pengukuran langsung lapangan serta mengolah pemetaan lahan aset milik yayasan menggunakan software QGIS.</li>
-                            <li>Menghasilkan output berupa peta topografi digital resmi yang valid sebagai landasan pengajuan SHM tanah yayasan.</li>
-                            <li>Menangani manajemen infrastruktur IT harian termasuk troubleshooting printer, jaringan WiFi, dan perawatan komputer operasional.</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-            <div id="proyek" class="space-y-6">
-                <h2 class="text-2xl font-bold text-slate-900 flex items-center"><i class="fas fa-project-diagram text-emerald-500 mr-3"></i>Studi Kasus Proyek</h2>
-                
-                <div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
-                    <div class="p-6">
-                        <div class="flex flex-wrap justify-between items-center gap-2 mb-2">
-                            <h3 class="text-xl font-bold text-slate-800">1. Website LRS Admin Dashboard</h3>
-                            <div class="flex gap-1">
-                                <span class="bg-slate-100 text-slate-700 text-xs px-2 py-0.5 rounded">Figma</span>
-                                <span class="bg-slate-100 text-slate-700 text-xs px-2 py-0.5 rounded">Draw.io</span>
-                                <span class="bg-slate-100 text-slate-700 text-xs px-2 py-0.5 rounded">PostgreSQL</span>
-                            </div>
-                        </div>
-                        <p class="text-sm text-gray-600 mb-4">
-                            Merancang sistem manajemen internal dan dashboard admin untuk monitoring sistem persinyalan. Bertanggung jawab penuh menyusun diagram alur kerja teknis serta pemetaan database relasional.
-                        </p>
-
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 my-4">
-                            <div class="border rounded-lg overflow-hidden bg-gray-50 p-2">
-                                <span class="text-xs font-semibold text-gray-500 block mb-1">Mockup UI (Figma)</span>
-                                <img src="mockup-lrs.png" alt="Mockup LRS Admin Dashboard" class="w-full h-48 object-cover rounded hover:opacity-90 transition cursor-pointer" onclick="openModal(this.src)">
-                            </div>
-                            <div class="border rounded-lg overflow-hidden bg-gray-50 p-2">
-                                <span class="text-xs font-semibold text-gray-500 block mb-1">ERD Database Design (Draw.io)</span>
-                                <img src="erd-lrs.png" alt="ERD Database Design LRS" class="w-full h-48 object-cover rounded hover:opacity-90 transition cursor-pointer" onclick="openModal(this.src)">
-                            </div>
-                        </div>
-
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 bg-slate-50 p-4 rounded-lg text-sm">
-                            <div>
-                                <h4 class="font-bold text-slate-700 mb-1"><i class="fas fa-cogs text-emerald-500 mr-1"></i> Analisis & API</h4>
-                                <p class="text-gray-600">Menyusun spesifikasi API terstruktur (HTTP Methods) serta merancang alur logika data menggunakan DFD.</p>
-                            </div>
-                            <div>
-                                <h4 class="font-bold text-slate-700 mb-1"><i class="fas fa-database text-emerald-500 mr-1"></i> Database Design</h4>
-                                <p class="text-gray-600">Menghasilkan arsitektur ERD kompleks yang dinormalisasi untuk menjaga integritas data transaksi.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
-                    <div class="p-6">
-                        <div class="flex flex-wrap justify-between items-center gap-2 mb-2">
-                            <h3 class="text-xl font-bold text-slate-800">2. SiJagung - Sistem Informasi Jagung Nasional</h3>
-                            <div class="flex gap-1">
-                                <span class="bg-emerald-100 text-emerald-800 text-xs px-2 py-0.5 rounded font-semibold">Skala Nasional</span>
-                                <span class="bg-slate-100 text-slate-700 text-xs px-2 py-0.5 rounded">ArcGIS</span>
-                                <span class="bg-slate-100 text-slate-700 text-xs px-2 py-0.5 rounded">QGIS</span>
-                                <span class="bg-slate-100 text-slate-700 text-xs px-2 py-0.5 rounded">GEE</span>
-                            </div>
-                        </div>
-                        <p class="text-sm text-gray-600 mb-4">
-                            Aplikasi monitoring berbasis spasial untuk memetakan sebaran wilayah komoditas produksi jagung di seluruh Indonesia guna mendukung akurasi kebijakan ketahanan pangan pemerintah.
-                        </p>
-
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 my-4">
-                            <div class="border rounded-lg overflow-hidden bg-gray-50 p-2">
-                                <span class="text-xs font-semibold text-gray-500 block mb-1">Mockup UI Form Input Poktan (Figma)</span>
-                                <img src="mockup-jajung.png" alt="Mockup UI Form SiJagung" class="w-full h-48 object-cover rounded hover:opacity-90 transition cursor-pointer" onclick="openModal(this.src)">
-                            </div>
-                            <div class="border rounded-lg overflow-hidden bg-gray-50 p-2">
-                                <span class="text-xs font-semibold text-gray-500 block mb-1">Hasil Olahan Data Spasial Peta (Web App)</span>
-                                <img src="peta-jagung.png" alt="Hasil Spasial Peta Sebaran Jagung" class="w-full h-48 object-cover rounded hover:opacity-90 transition cursor-pointer" onclick="openModal(this.src)">
-                            </div>
-                        </div>
-
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 bg-slate-50 p-4 rounded-lg text-sm">
-                            <div>
-                                <h4 class="font-bold text-slate-700 mb-1"><i class="fas fa-map-marked-alt text-emerald-500 mr-1"></i> GIS & Spatial Process</h4>
-                                <p class="text-gray-600">Mengolah data spasial mentah hingga menghasilkan keluaran format GeoJSON siap pakai yang diintegrasikan langsung ke Web App peta interaktif.</p>
-                            </div>
-                            <div>
-                                <h4 class="font-bold text-slate-700 mb-1"><i class="fas fa-window-maximize text-emerald-500 mr-1"></i> Requirements & Wireframe</h4>
-                                <p class="text-gray-600">Menggali kebutuhan fungsional dari kelompok tani (Poktan) serta mendesain UI Form Input Laporan yang ramah pengguna.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
-                    <div class="p-6">
-                        <div class="flex flex-wrap justify-between items-center gap-2 mb-2">
-                            <h3 class="text-xl font-bold text-slate-800">3. Aplikasi Manajemen Aset IT Internal Perusahaan</h3>
-                            <div class="flex gap-1">
-                                <span class="bg-slate-100 text-slate-700 text-xs px-2 py-0.5 rounded">Visio</span>
-                                <span class="bg-slate-100 text-slate-700 text-xs px-2 py-0.5 rounded">Figma</span>
-                                <span class="bg-slate-100 text-slate-700 text-xs px-2 py-0.5 rounded">SRS Docs</span>
-                            </div>
-                        </div>
-                        <p class="text-sm text-gray-600 mb-4">
-                            Solusi digital tata kelola siklus hidup perangkat keras & perangkat lunak internal. Berfokus pada kemudahan verifikasi fisik dan audit berkala inventaris kantor.
-                        </p>
-                        
-                        <div class="my-4 border rounded-lg bg-gray-50 p-4 max-w-md mx-auto">
-                            <span class="text-xs font-semibold text-gray-500 block mb-2 text-center">Flowchart Alur Proses Bisnis Usulan (To-Be)</span>
-                            <img src="flowchart-aset.png" alt="Flowchart Alur Bisnis Manajemen Aset" class="w-full h-auto max-h-80 object-contain rounded hover:opacity-90 transition cursor-pointer mx-auto" onclick="openModal(this.src)">
-                        </div>
-
-                        <div class="space-y-3 text-sm text-gray-600">
-                            <p class="font-semibold text-slate-700 mb-1">Cakupan Rekayasa Proses Bisnis (To-Be) yang Dirancang:</p>
-                            <div class="grid grid-cols-2 md:grid-cols-4 gap-2">
-                                <div class="bg-gray-50 p-2 rounded text-center border border-gray-200">
-                                    <span class="block font-bold text-emerald-600">Tahap 1</span> Konfigurasi Data Master
-                                </div>
-                                <div class="bg-gray-50 p-2 rounded text-center border border-gray-200">
-                                    <span class="block font-bold text-emerald-600">Tahap 2</span> Siklus Hidup Aset
-                                </div>
-                                <div class="bg-gray-50 p-2 rounded text-center border border-gray-200">
-                                    <span class="block font-bold text-emerald-600">Tahap 3</span> Inspeksi & Audit Berkala
-                                </div>
-                                <div class="bg-gray-50 p-2 rounded text-center border border-gray-200">
-                                    <span class="block font-bold text-emerald-600">Tahap 4</span> Pemantauan & Pelaporan
-                                </div>
-                            </div>
-                            <p class="pt-2">
-                                <i class="fas fa-check-circle text-emerald-500 mr-1"></i> Berhasil menyusun dokumen **SRS (Software Requirements Specification)** yang komprehensif, memangkas *miscommunication* antara manajemen dan pengembang hingga 100% pada fase awal logika pemindaian data aset.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-    </main>
-
-    <div id="imageModal" class="fixed inset-0 z-50 hidden bg-black bg-opacity-90 flex justify-center items-center p-4">
-        <button onclick="closeModal()" class="absolute top-4 right-4 text-white text-3xl font-bold hover:text-gray-300">&times;</button>
-        <img id="modalImg" src="" alt="Preview Besar" class="max-w-full max-h-[90vh] rounded shadow-lg object-contain">
+  <header class="top">
+    <div class="wrap">
+      <a class="brand" href="#">Fauza Nurhakim</a>
+      <nav aria-label="Navigasi utama">
+        <a href="#proyek">Proyek</a>
+        <a href="#pengalaman">Pengalaman</a>
+        <a href="#keahlian" class="hide-sm">Keahlian</a>
+        <a href="#kontak">Kontak</a>
+      </nav>
     </div>
+  </header>
 
-    <footer class="bg-slate-900 text-gray-400 py-6 text-center text-sm mt-12 border-t border-slate-800">
-        <p>&copy; 2026 Fauza Nurhakim Ar Rafei. All Rights Reserved. Built for GitHub Pages.</p>
-    </footer>
+  <main>
+    <section class="hero">
+      <div class="wrap">
+        <div>
+          <div class="who">
+            <img src="assets/img/profile.webp" alt="Foto Fauza Nurhakim Ar Rafei" width="64" height="64">
+            <span><strong>Software Engineer & IT Team Lead</strong>PT Blue Rose Narado, Bogor dan Cianjur</span>
+          </div>
+          <h1>Fauza Nurhakim Ar Rafei</h1>
+          <div class="seam" aria-hidden="true"></div>
+          <p class="lead">Saya membangun aplikasi internal untuk pabrik tas PT Blue Rose Narado: sistem ERP, perhitungan costing, pengolahan order produksi, sampai pemantauan output tiap line. Latar belakang saya analisis sistem dan GIS, jadi saya terbiasa mulai dari kebutuhan user sebelum menulis kode.</p>
+          <div class="actions">
+            <a class="btn btn-primary" href="#proyek">Lihat proyek</a>
+            <a class="btn btn-ghost" href="https://wa.me/6289699020721" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2c0 1.3 1 2.6 1.1 2.7.1.2 1.9 2.9 4.6 4 1.7.7 2.4.8 3.2.7.5-.1 1.5-.6 1.8-1.2.2-.6.2-1.1.1-1.2l-.5-.3Z"/></svg>
+              Chat WhatsApp
+            </a>
+          </div>
+        </div>
 
-    <script>
-        function openModal(imgSrc) {
-            document.getElementById('modalImg').src = imgSrc;
-            document.getElementById('imageModal').classList.remove('hidden');
-        }
-        function closeModal() {
-            document.getElementById('imageModal').classList.add('hidden');
-        }
-        // Menutup modal jika area luar gambar di-klik
-        document.getElementById('imageModal').addEventListener('click', function(e) {
-            if (e.target === this) closeModal();
-        });
-    </script>
+        <figure class="stage" style="margin:0">
+          <div class="shot main">
+            <button type="button" data-open="sims" data-index="0" aria-label="Perbesar screenshot dashboard SIMS">
+              <img src="assets/img/sims-dashboard.webp" alt="Dashboard SIMS ERP" width="1600" height="1000">
+            </button>
+          </div>
+          <div class="shot inset">
+            <button type="button" data-open="tracker" data-index="2" aria-label="Perbesar screenshot halaman PIN Production Tracker">
+              <img src="assets/img/tracker-pin.webp" alt="Halaman PIN Production Tracker" width="1600" height="1000">
+            </button>
+          </div>
+          <figcaption>SIMS dan Production Tracker, dua aplikasi yang dipakai setiap hari di pabrik.</figcaption>
+        </figure>
+      </div>
+    </section>
 
+    <section class="block" id="proyek">
+      <div class="wrap">
+        <div class="head">
+          <h2>Aplikasi di PT Blue Rose Narado</h2>
+          <p>Empat aplikasi yang saya kerjakan sejak Juni 2026. Semuanya dibangun dengan Next.js, Node.js dan Supabase (PostgreSQL), lalu dijalankan dengan Docker Compose di VPS.</p>
+        </div>
+
+        <article class="project">
+          <div>
+            <h3>SIMS</h3>
+            <p class="full">Smart Integrated Manufacturing System</p>
+            <p class="what">Sistem ERP pabrik yang menyatukan alur sales, pembelian, gudang, cutting, produksi sampai QC dalam satu aplikasi.</p>
+            <dl class="facts">
+              <dt>Dipakai oleh</dt><dd>Semua departemen</dd>
+              <dt>Peran saya</dt><dd>Membangun dari awal</dd>
+            </dl>
+            <ul class="points">
+              <li>Modul Sales, Purchase, gudang bahan baku dan barang jadi, Cutting, Production, dan QC/QA.</li>
+              <li>Dashboard ringkas untuk sales order aktif, PO yang masih terbuka, dan antrean produksi.</li>
+              <li>Bisa dipakai untuk lebih dari satu pabrik, dengan opsi masuk sambil scan karton untuk alur kerja gudang.</li>
+            </ul>
+          </div>
+          <div class="gallery">
+            <div class="shot main"><button type="button" data-open="sims" data-index="0" aria-label="Perbesar dashboard SIMS"><img src="assets/img/sims-dashboard.webp" alt="Dashboard SIMS" loading="lazy" width="1600" height="1000"></button></div>
+            <div class="thumbs">
+              <div class="shot"><button type="button" data-open="sims" data-index="1" aria-label="Perbesar halaman login SIMS"><img src="assets/img/sims-login.webp" alt="Halaman login SIMS" loading="lazy" width="1600" height="1000"></button></div>
+            </div>
+          </div>
+        </article>
+
+        <article class="project">
+          <div>
+            <h3>CostingBOM</h3>
+            <p class="full">Pengecekan BOM dan perhitungan costing</p>
+            <p class="what">Aplikasi untuk mengecek Bill of Material (BOM) tiap style dan menghitung costing-nya sebelum order diproduksi.</p>
+            <dl class="facts">
+              <dt>Dipakai oleh</dt><dd>Departemen Merchandise</dd>
+              <dt>Peran saya</dt><dd>Membangun dari awal</dd>
+            </dl>
+            <ul class="points">
+              <li>Membandingkan BOM baru dengan BOM lama per brand supaya perbedaan material langsung terlihat.</li>
+              <li>Menandai baris MML yang masih perlu dikonfirmasi sebelum costing dibuat.</li>
+              <li>Memantau umur data MML tiap brand, jadi tim tahu kapan data perlu diunggah ulang.</li>
+            </ul>
+          </div>
+          <div class="gallery">
+            <div class="shot main"><button type="button" data-open="costing" data-index="0" aria-label="Perbesar dashboard CostingBOM"><img src="assets/img/costing-dashboard.webp" alt="Dashboard CostingBOM" loading="lazy" width="1600" height="1372"></button></div>
+            <div class="thumbs">
+              <div class="shot"><button type="button" data-open="costing" data-index="1" aria-label="Perbesar halaman login CostingBOM"><img src="assets/img/costing-login.webp" alt="Halaman login CostingBOM" loading="lazy" width="1600" height="1000"></button></div>
+            </div>
+          </div>
+        </article>
+
+        <article class="project">
+          <div>
+            <h3>MD Production</h3>
+            <p class="full">Pengolahan order list produksi</p>
+            <p class="what">Aplikasi untuk mengolah order list dari Merchandise sampai siap dirilis ke SIMS, termasuk penentuan ukuran packing.</p>
+            <dl class="facts">
+              <dt>Dipakai oleh</dt><dd>Departemen Merchandise dan Warehouse</dd>
+              <dt>Peran saya</dt><dd>Membangun dari awal</dd>
+            </dl>
+            <ul class="points">
+              <li>Menghitung ukuran packing secara otomatis berdasarkan region tujuan. Fitur ini dipakai tim Warehouse.</li>
+              <li>Mengolah order list, DOL dan PLN per brand, lalu merilisnya ke SIMS.</li>
+              <li>Daftar pekerjaan yang perlu ditindaklanjuti, diurutkan dari yang paling mendesak, plus pengecekan kelengkapan data master.</li>
+            </ul>
+          </div>
+          <div class="gallery">
+            <div class="shot main"><button type="button" data-open="md" data-index="0" aria-label="Perbesar dashboard MD Production"><img src="assets/img/md-dashboard.webp" alt="Dashboard MD Production" loading="lazy" width="1600" height="1031"></button></div>
+            <div class="thumbs">
+              <div class="shot"><button type="button" data-open="md" data-index="1" aria-label="Perbesar halaman login MD Production"><img src="assets/img/md-login.webp" alt="Halaman login MD Production" loading="lazy" width="1600" height="1000"></button></div>
+            </div>
+          </div>
+        </article>
+
+        <article class="project">
+          <div>
+            <h3>Production Tracker</h3>
+            <p class="full">Pemantauan output tiap line produksi</p>
+            <p class="what">Dashboard output, OK dan reject untuk setiap line produksi di pabrik Cianjur.</p>
+            <dl class="facts">
+              <dt>Dipakai oleh</dt><dd>Tim produksi pabrik Cianjur</dd>
+              <dt>Peran saya</dt><dd>Melanjutkan pengembangan</dd>
+            </dl>
+            <ul class="points">
+              <li>Melanjutkan pengembangan aplikasi yang sudah berjalan dengan menambah dan menyempurnakan fitur.</li>
+              <li>Setiap line masuk dengan akunnya sendiri, sedangkan dashboard dibuka dengan PIN.</li>
+              <li>Tersedia report, progress PO, riwayat, KPI, laporan defect, dan rekap terpisah untuk trolley pasang roda.</li>
+            </ul>
+          </div>
+          <div class="gallery">
+            <div class="shot main"><button type="button" data-open="tracker" data-index="0" aria-label="Perbesar dashboard Production Tracker"><img src="assets/img/tracker-dashboard.webp" alt="Dashboard Production Tracker" loading="lazy" width="1600" height="1124"></button></div>
+            <div class="thumbs">
+              <div class="shot"><button type="button" data-open="tracker" data-index="1" aria-label="Perbesar halaman login line"><img src="assets/img/tracker-login-line.webp" alt="Halaman login line Production Tracker" loading="lazy" width="1600" height="1000"></button></div>
+              <div class="shot"><button type="button" data-open="tracker" data-index="2" aria-label="Perbesar halaman PIN dashboard"><img src="assets/img/tracker-pin.webp" alt="Halaman PIN dashboard Production Tracker" loading="lazy" width="1600" height="1000"></button></div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="block" id="analisis">
+      <div class="wrap">
+        <div class="head">
+          <h2>Analisis sistem dan GIS</h2>
+          <p>Proyek sebelum PT Blue Rose Narado, saat saya lebih banyak bekerja di analisis kebutuhan, desain database dan pengolahan data spasial.</p>
+        </div>
+        <div class="cases">
+          <article class="case">
+            <div class="shot"><button type="button" data-open="lrs" data-index="0" aria-label="Perbesar mockup LRS Admin Dashboard"><img src="assets/img/lrs-mockup.webp" alt="Mockup LRS Admin Dashboard di Figma" loading="lazy" width="1530" height="913"></button></div>
+            <div class="body">
+              <h3>LRS Admin Dashboard</h3>
+              <p class="where">PT Len Railway Systems</p>
+              <p>Dashboard admin untuk monitoring persinyalan kereta api. Saya menyusun SRS, ERD, DFD dan spesifikasi API, lalu membuat mockup di Figma sebagai acuan tim developer.</p>
+              <p class="tags">Figma, Draw.io, PostgreSQL</p>
+              <p class="more"><button type="button" data-open="lrs" data-index="1">Lihat ERD database</button></p>
+            </div>
+          </article>
+          <article class="case">
+            <div class="shot"><button type="button" data-open="jagung" data-index="0" aria-label="Perbesar peta SiJagung"><img src="assets/img/jagung-peta.webp" alt="Peta sebaran produksi jagung" loading="lazy" width="1600" height="744"></button></div>
+            <div class="body">
+              <h3>SiJagung</h3>
+              <p class="where">Sistem Informasi Jagung Nasional</p>
+              <p>Peta sebaran wilayah produksi jagung di Indonesia. Saya mengolah data spasial menjadi GeoJSON untuk peta web, dan mendesain form laporan untuk kelompok tani.</p>
+              <p class="tags">QGIS, ArcGIS, Google Earth Engine, Figma</p>
+              <p class="more"><button type="button" data-open="jagung" data-index="1">Lihat mockup form</button></p>
+            </div>
+          </article>
+          <article class="case">
+            <div class="shot"><button type="button" data-open="aset" data-index="0" aria-label="Perbesar flowchart manajemen aset"><img src="assets/img/aset-flowchart.webp" alt="Flowchart proses bisnis manajemen aset IT" loading="lazy" width="529" height="1377"></button></div>
+            <div class="body">
+              <h3>Manajemen Aset IT</h3>
+              <p class="where">Aplikasi internal perusahaan</p>
+              <p>SRS dan rancangan proses bisnis To-Be untuk pengelolaan aset IT: data master, siklus hidup aset, audit berkala, sampai pelaporan.</p>
+              <p class="tags">Visio, Figma, SRS</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="block" id="pengalaman">
+      <div class="wrap">
+        <div class="head">
+          <h2>Pengalaman</h2>
+        </div>
+        <ol class="timeline">
+          <li class="now">
+            <p class="when">Jun 2026 - sekarang</p>
+            <h3>Software Engineer & IT Team Lead</h3>
+            <p class="org">PT Blue Rose Narado, Bogor dan Cianjur</p>
+            <p class="desc">Membangun dan merawat aplikasi internal pabrik, mengatur deployment di VPS, memimpin tim IT dan membimbing 1 developer.</p>
+          </li>
+          <li>
+            <p class="when">Nov 2025 - Mei 2026</p>
+            <h3>Business & System Analyst (Magang)</h3>
+            <p class="org">PT Len Railway Systems, Bandung</p>
+            <p class="desc">Menyusun SRS, ERD, DFD dan spesifikasi API untuk LRS Admin Dashboard, membuat mockup di Figma, ikut testing, dan mengolah data GeoJSON di QGIS untuk peta dashboard.</p>
+          </li>
+          <li>
+            <p class="when">Jul 2022 - Jun 2024</p>
+            <h3>Admin Distribusi dan Logistik (Freelance)</h3>
+            <p class="org">UD Langgeng Jaya, Bogor</p>
+            <p class="desc">Mengurus surat jalan, menyusun rute pengiriman, mencatat data distribusi, dan menangani komplain customer secara langsung.</p>
+          </li>
+          <li>
+            <p class="when">Feb 2022 - Agu 2022</p>
+            <h3>Staff GIS & IT Support (Magang)</h3>
+            <p class="org">Yayasan Islam Al-A'laa, Bogor</p>
+            <p class="desc">Mengukur lahan dengan GPS dan memetakannya di QGIS untuk pengajuan SHM dan akreditasi sekolah, sekaligus menangani komputer, printer dan jaringan sekolah.</p>
+          </li>
+          <li>
+            <p class="when">2019 - 2025</p>
+            <h3>Sarjana Teknik Informatika (S.T.)</h3>
+            <p class="org">Universitas Ibn Khaldun Bogor</p>
+            <p class="desc">Konsentrasi Geospatial Information Technology, IPK 3,43.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="block" id="keahlian">
+      <div class="wrap">
+        <div class="head">
+          <h2>Keahlian</h2>
+        </div>
+        <div class="skills">
+          <div class="skill"><h3>Pengembangan aplikasi</h3><p>Next.js, Node.js, JavaScript, Supabase, PostgreSQL, Docker Compose, VPS, Git</p></div>
+          <div class="skill"><h3>AI untuk development</h3><p>Claude Code, Google Antigravity, AI agent, prompt engineering, MCP untuk Figma dan Blender</p></div>
+          <div class="skill"><h3>Analisis sistem</h3><p>Analisis kebutuhan, proses bisnis, SRS, ERD, DFD, UML, flowchart, spesifikasi API, Figma, Visio, Draw.io</p></div>
+          <div class="skill"><h3>GIS</h3><p>QGIS, ArcGIS, Google Earth Engine, GeoJSON, remote sensing, survei GPS</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="block contact" id="kontak">
+      <div class="wrap">
+        <div class="head">
+          <h2>Kontak</h2>
+          <p>Silakan hubungi saya lewat email atau WhatsApp untuk peluang kerja atau diskusi proyek.</p>
+        </div>
+        <ul class="contact-list">
+          <li><a href="mailto:fauzajaul@gmail.com"><span>Email</span><strong>fauzajaul@gmail.com</strong></a></li>
+          <li><a href="https://wa.me/6289699020721" target="_blank" rel="noopener"><span>WhatsApp</span><strong>0896-9902-0721</strong></a></li>
+          <li><a href="https://github.com/fauzajaul-lgtm" target="_blank" rel="noopener"><span>GitHub</span><strong>github.com/fauzajaul-lgtm</strong></a></li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <span>&copy; 2026 Fauza Nurhakim Ar Rafei</span>
+      <span>Bogor, Jawa Barat</span>
+    </div>
+  </footer>
+
+  <dialog class="viewer" id="viewer" aria-label="Penampil gambar">
+    <div class="viewer-inner">
+      <div class="viewer-bar">
+        <span id="viewer-caption"></span>
+        <button type="button" class="vbtn" id="viewer-close">Tutup</button>
+      </div>
+      <div class="viewer-stage"><img id="viewer-img" alt=""></div>
+      <div class="viewer-nav">
+        <button type="button" class="vbtn" id="viewer-prev">Sebelumnya</button>
+        <span id="viewer-count" style="color:#9AA4B6;align-self:center;font-size:.9rem"></span>
+        <button type="button" class="vbtn" id="viewer-next">Berikutnya</button>
+      </div>
+    </div>
+  </dialog>
+
+  <script>
+    const galleries = {
+      sims: [
+        ["assets/img/sims-dashboard.webp", "SIMS, dashboard"],
+        ["assets/img/sims-login.webp", "SIMS, halaman login"]
+      ],
+      costing: [
+        ["assets/img/costing-dashboard.webp", "CostingBOM, dashboard"],
+        ["assets/img/costing-login.webp", "CostingBOM, halaman login"]
+      ],
+      md: [
+        ["assets/img/md-dashboard.webp", "MD Production, dashboard"],
+        ["assets/img/md-login.webp", "MD Production, halaman login"]
+      ],
+      tracker: [
+        ["assets/img/tracker-dashboard.webp", "Production Tracker, dashboard produksi"],
+        ["assets/img/tracker-login-line.webp", "Production Tracker, login line"],
+        ["assets/img/tracker-pin.webp", "Production Tracker, PIN dashboard"]
+      ],
+      lrs: [
+        ["assets/img/lrs-mockup.webp", "LRS Admin Dashboard, mockup Figma"],
+        ["assets/img/lrs-erd.webp", "LRS Admin Dashboard, ERD database"]
+      ],
+      jagung: [
+        ["assets/img/jagung-peta.webp", "SiJagung, peta sebaran produksi jagung"],
+        ["assets/img/jagung-mockup.webp", "SiJagung, mockup form laporan kelompok tani"]
+      ],
+      aset: [
+        ["assets/img/aset-flowchart.webp", "Manajemen Aset IT, flowchart proses bisnis To-Be"]
+      ]
+    };
+
+    const viewer = document.getElementById("viewer");
+    const vImg = document.getElementById("viewer-img");
+    const vCap = document.getElementById("viewer-caption");
+    const vCount = document.getElementById("viewer-count");
+    const vPrev = document.getElementById("viewer-prev");
+    const vNext = document.getElementById("viewer-next");
+    let current = { key: null, index: 0 };
+
+    function show() {
+      const list = galleries[current.key];
+      const [src, caption] = list[current.index];
+      vImg.src = src;
+      vImg.alt = caption;
+      vCap.textContent = caption;
+      const many = list.length > 1;
+      vPrev.hidden = vNext.hidden = !many;
+      vCount.textContent = many ? (current.index + 1) + " / " + list.length : "";
+    }
+    function step(d) {
+      const n = galleries[current.key].length;
+      current.index = (current.index + d + n) % n;
+      show();
+    }
+
+    document.querySelectorAll("[data-open]").forEach(btn => {
+      btn.addEventListener("click", () => {
+        current = { key: btn.dataset.open, index: Number(btn.dataset.index || 0) };
+        show();
+        viewer.showModal();
+      });
+    });
+    vPrev.addEventListener("click", () => step(-1));
+    vNext.addEventListener("click", () => step(1));
+    document.getElementById("viewer-close").addEventListener("click", () => viewer.close());
+    viewer.addEventListener("click", e => {
+      if (e.target.classList.contains("viewer-stage") || e.target.classList.contains("viewer-inner")) viewer.close();
+    });
+    viewer.addEventListener("keydown", e => {
+      if (galleries[current.key].length < 2) return;
+      if (e.key === "ArrowLeft") step(-1);
+      if (e.key === "ArrowRight") step(1);
+    });
+  </script>
 </body>
 </html>
