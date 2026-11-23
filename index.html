@@ -212,6 +212,63 @@
     .vbtn:hover { border-color: var(--thread); }
     .vbtn[hidden] { display: none; }
 
+    /* Warna latar per bagian */
+    :root {
+      --night: #142036;
+      --night-2: #1B2A45;
+      --mist: #EBF1F8;
+      --sand: #F7F0E4;
+      --thread-light: #E0A24E;
+      --on-night: #D3DAE5;
+      --on-night-muted: #9BA7BA;
+    }
+    section.block { border-top: 0; }
+    .top {
+      background: rgba(20, 32, 54, .94);
+      border-bottom: 1px solid rgba(255, 255, 255, .08);
+    }
+    .brand { color: #fff; }
+    .top nav a { color: var(--on-night); }
+    .top nav a:hover { color: #fff; text-decoration-color: var(--thread-light); }
+
+    .hero {
+      color: var(--on-night);
+      background:
+        radial-gradient(900px 480px at 85% 20%, rgba(224, 162, 78, .16), transparent 60%),
+        radial-gradient(700px 520px at 5% 100%, rgba(70, 120, 200, .22), transparent 60%),
+        linear-gradient(rgba(255, 255, 255, .045) 1px, transparent 1px) 0 0 / 32px 32px,
+        linear-gradient(90deg, rgba(255, 255, 255, .045) 1px, transparent 1px) 0 0 / 32px 32px,
+        linear-gradient(160deg, var(--night-2), var(--night));
+    }
+    .hero h1 { color: #fff; }
+    .hero .lead { color: var(--on-night); }
+    .who strong { color: #fff; }
+    .who span { color: var(--on-night-muted); }
+    .who img { border-color: var(--night); box-shadow: 0 0 0 2px var(--thread-light); }
+    .seam { border-top-color: var(--thread-light); }
+    .hero .btn-primary { background: #fff; color: var(--ink); border-color: #fff; }
+    .hero .btn-primary:hover { background: var(--sand); color: var(--ink); }
+    .hero .btn-ghost { background: transparent; color: #fff; border-color: rgba(255, 255, 255, .3); }
+    .hero .btn-ghost:hover { border-color: var(--thread-light); color: #fff; }
+    .hero .shot { border-color: rgba(255, 255, 255, .14); box-shadow: 0 24px 48px -16px rgba(0, 0, 0, .55); }
+    .hero :focus-visible { outline-color: var(--thread-light); }
+    .stage figcaption { color: var(--on-night-muted); }
+
+    #proyek { background: var(--surface); }
+    #analisis { background: var(--mist); }
+    #analisis .case { border-color: #D6E0EC; }
+    #pengalaman { background: var(--surface); }
+    .timeline li::before { background: var(--surface); }
+    .timeline li.now::before { background: var(--thread); }
+    #keahlian { background: var(--sand); }
+    #keahlian .skill { border-top-color: rgba(183, 116, 28, .28); }
+    .contact {
+      background:
+        radial-gradient(700px 360px at 90% 0%, rgba(224, 162, 78, .12), transparent 60%),
+        var(--night);
+    }
+    footer { background: var(--night); }
+
     /* Animasi satu kali saat halaman dibuka */
     @media (prefers-reduced-motion: no-preference) {
       .stage .main { animation: rise .7s cubic-bezier(.2, .7, .2, 1) both; }
@@ -281,7 +338,7 @@
         <figure class="stage" style="margin:0">
           <div class="shot main">
             <button type="button" data-open="sims" data-index="0" aria-label="Perbesar screenshot dashboard SIMS">
-              <img src="assets/img/sims-dashboard.webp" alt="Dashboard SIMS ERP" width="1600" height="1000">
+              <img src="assets/img/sims-dashboard.webp?v=2" alt="Dashboard SIMS ERP" width="1600" height="1000">
             </button>
           </div>
           <div class="shot inset">
@@ -317,7 +374,7 @@
             </ul>
           </div>
           <div class="gallery">
-            <div class="shot main"><button type="button" data-open="sims" data-index="0" aria-label="Perbesar dashboard SIMS"><img src="assets/img/sims-dashboard.webp" alt="Dashboard SIMS" loading="lazy" width="1600" height="1000"></button></div>
+            <div class="shot main"><button type="button" data-open="sims" data-index="0" aria-label="Perbesar dashboard SIMS"><img src="assets/img/sims-dashboard.webp?v=2" alt="Dashboard SIMS" loading="lazy" width="1600" height="1000"></button></div>
             <div class="thumbs">
               <figure class="thumb"><div class="shot"><button type="button" data-open="sims" data-index="1" aria-label="Perbesar halaman login SIMS"><img src="assets/img/sims-login.webp" alt="Halaman login SIMS" loading="lazy" width="1600" height="1000"></button></div><figcaption>Halaman login</figcaption></figure>
             </div>
@@ -340,7 +397,7 @@
             </ul>
           </div>
           <div class="gallery">
-            <div class="shot main"><button type="button" data-open="costing" data-index="0" aria-label="Perbesar dashboard CostingBOM"><img src="assets/img/costing-dashboard.webp" alt="Dashboard CostingBOM" loading="lazy" width="1600" height="1372"></button></div>
+            <div class="shot main"><button type="button" data-open="costing" data-index="0" aria-label="Perbesar dashboard CostingBOM"><img src="assets/img/costing-dashboard.webp?v=2" alt="Dashboard CostingBOM" loading="lazy" width="1600" height="1372"></button></div>
             <div class="thumbs">
               <figure class="thumb"><div class="shot"><button type="button" data-open="costing" data-index="1" aria-label="Perbesar halaman login CostingBOM"><img src="assets/img/costing-login.webp" alt="Halaman login CostingBOM" loading="lazy" width="1600" height="1000"></button></div><figcaption>Halaman login</figcaption></figure>
             </div>
@@ -363,7 +420,7 @@
             </ul>
           </div>
           <div class="gallery">
-            <div class="shot main"><button type="button" data-open="md" data-index="0" aria-label="Perbesar dashboard MD Production"><img src="assets/img/md-dashboard.webp" alt="Dashboard MD Production" loading="lazy" width="1600" height="1031"></button></div>
+            <div class="shot main"><button type="button" data-open="md" data-index="0" aria-label="Perbesar dashboard MD Production"><img src="assets/img/md-dashboard.webp?v=2" alt="Dashboard MD Production" loading="lazy" width="1600" height="1031"></button></div>
             <div class="thumbs">
               <figure class="thumb"><div class="shot"><button type="button" data-open="md" data-index="1" aria-label="Perbesar halaman login MD Production"><img src="assets/img/md-login.webp" alt="Halaman login MD Production" loading="lazy" width="1600" height="1000"></button></div><figcaption>Halaman login</figcaption></figure>
             </div>
@@ -386,7 +443,7 @@
             </ul>
           </div>
           <div class="gallery">
-            <div class="shot main"><button type="button" data-open="tracker" data-index="0" aria-label="Perbesar dashboard Production Tracker"><img src="assets/img/tracker-dashboard.webp" alt="Dashboard Production Tracker" loading="lazy" width="1600" height="1124"></button></div>
+            <div class="shot main"><button type="button" data-open="tracker" data-index="0" aria-label="Perbesar dashboard Production Tracker"><img src="assets/img/tracker-dashboard.webp?v=2" alt="Dashboard Production Tracker" loading="lazy" width="1600" height="1124"></button></div>
             <div class="thumbs">
               <figure class="thumb"><div class="shot"><button type="button" data-open="tracker" data-index="1" aria-label="Perbesar halaman login line"><img src="assets/img/tracker-login-line.webp" alt="Halaman login line Production Tracker" loading="lazy" width="1600" height="1000"></button></div><figcaption>Login per line</figcaption></figure>
               <figure class="thumb"><div class="shot"><button type="button" data-open="tracker" data-index="2" aria-label="Perbesar halaman PIN dashboard"><img src="assets/img/tracker-pin.webp" alt="Halaman PIN dashboard Production Tracker" loading="lazy" width="1600" height="1000"></button></div><figcaption>PIN untuk dashboard</figcaption></figure>
@@ -530,19 +587,19 @@
   <script>
     const galleries = {
       sims: [
-        ["assets/img/sims-dashboard.webp", "SIMS, dashboard"],
+        ["assets/img/sims-dashboard.webp?v=2", "SIMS, dashboard"],
         ["assets/img/sims-login.webp", "SIMS, halaman login"]
       ],
       costing: [
-        ["assets/img/costing-dashboard.webp", "CostingBOM, dashboard"],
+        ["assets/img/costing-dashboard.webp?v=2", "CostingBOM, dashboard"],
         ["assets/img/costing-login.webp", "CostingBOM, halaman login"]
       ],
       md: [
-        ["assets/img/md-dashboard.webp", "MD Production, dashboard"],
+        ["assets/img/md-dashboard.webp?v=2", "MD Production, dashboard"],
         ["assets/img/md-login.webp", "MD Production, halaman login"]
       ],
       tracker: [
-        ["assets/img/tracker-dashboard.webp", "Production Tracker, dashboard produksi"],
+        ["assets/img/tracker-dashboard.webp?v=2", "Production Tracker, dashboard produksi"],
         ["assets/img/tracker-login-line.webp", "Production Tracker, login line"],
         ["assets/img/tracker-pin.webp", "Production Tracker, PIN dashboard"]
       ],
